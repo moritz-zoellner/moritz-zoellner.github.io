@@ -1,0 +1,214 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Moritz Zoellner </title> <meta name="author" content="Moritz Zoellner"> <meta name="description" content="Personal academic website of Moritz Zoellner. "> <meta name="keywords" content="robot-learning, machine-learning, embodied-ai, physical-ai"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/favicon.png?v=9b9490acf79701a72671d359bc294a61"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://moritz-zoellner.github.io/"> <script src="/assets/js/theme.js?v=f5e41c4ab49a1909eae0773e11465846"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item active" data-one-page-nav-item="about"> <a class="nav-link" href="/#about" data-one-page-nav="about">about</a> </li> <li class="nav-item" data-one-page-nav-item="research"> <a class="nav-link" href="/#research" data-one-page-nav="research">research</a> </li> <li class="nav-item" data-one-page-nav-item="teaching"> <a class="nav-link" href="/#teaching" data-one-page-nav="teaching">more</a> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Toggle light/dark theme" aria-label="Toggle light/dark theme"> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <style>
+    .about-profile-center {
+      width: 100%;
+      margin: 0 auto 1rem;
+      text-align: center;
+    }
+
+    .about-profile-center picture {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .about-profile-center img {
+      margin: auto;
+      max-width: 25%;
+      min-width: 100px;
+    }
+
+    .about-profile-center .header {
+      margin-bottom: 1rem;
+      font-size: x-large;
+    }
+
+    .about-profile-center .name {
+      font-size: xx-large;
+    }
+
+    .about-profile-center .title {
+      font-size: large;
+      opacity: 75%;
+    }
+
+    .about-profile-center .address {
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+      font-size: large;
+      opacity: 75%;
+    }
+
+    .about-profile-center .address p {
+      display: inline-block;
+      margin: auto;
+    }
+
+    .about-profile-center .contact-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-top: 0.35rem;
+    }
+
+    .about-profile-center .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid transparent;
+      border-radius: 0.3rem;
+      color: var(--global-text-color);
+      line-height: 1;
+      text-decoration: none;
+      transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        color 160ms ease;
+    }
+
+    .about-profile-center .contact-icons a:hover {
+      border-color: var(--global-theme-color);
+      background-color: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+
+    .about-profile-center .contact-icons i {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .about-profile-center .contact-icons .ai-cv {
+      font-size: 1.42rem;
+      transform: translateY(0.07rem);
+    }
+
+    @media (max-width: 576px) {
+      .about-profile-center img {
+        min-width: 200px;
+      }
+    }
+  </style> <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #about,
+    .one-page-section {
+      scroll-margin-top: 5.75rem;
+    }
+
+    .one-page-section {
+      margin-top: 3.25rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    .one-page-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .publications h2.bibliography,
+    .teaching-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 80%;
+      margin: 2.25rem auto 1.25rem;
+      padding-top: 0;
+      border-top: 0;
+      color: #b3b7bb;
+      font-family: inherit;
+      font-size: 1.5rem;
+      font-weight: 350;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .publications h2.bibliography::before,
+    .publications h2.bibliography::after,
+    .teaching-separator::before,
+    .teaching-separator::after {
+      content: "";
+      flex: 1 1 auto;
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    .publications ol.bibliography li .author > em {
+      border-bottom: 0;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .publications ol.bibliography li > .row {
+      border-left: 3px solid transparent;
+      border-radius: 4px;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .publications ol.bibliography li .row.first-author-publication {
+      background-color: var(--global-code-bg-color);
+      border-left-color: var(--global-theme-color);
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+    }
+
+    .publications ol.bibliography li .title .publication-title-translation {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--global-text-color-light);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    .publications ol.bibliography li .abbr abbr {
+      color: #fff !important;
+    }
+
+    .publications ol.bibliography li .abbr abbr a {
+      color: #fff;
+    }
+
+    .publications ol.bibliography li .links {
+      margin-top: 0.45rem;
+    }
+
+    .publications ol.bibliography li .links a.btn {
+      border: 0;
+      margin: 0 1rem 0 0;
+      padding: 0;
+      color: var(--global-theme-color);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .publications ol.bibliography li .links a.btn:hover {
+      border: 0;
+      color: var(--global-hover-color);
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style> <div class="post" id="about" data-one-page-section="about"> <article> <div class="profile about-profile-center"> <figure> <picture> <img src="/assets/img/profile_image.JPG?v=66a07ff1e827d259eeaafbf2e446b1b0" class="img-fluid z-depth-1 rounded-circle" width="100%" height="auto" alt="profile_image.JPG" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <div class="header"> <div class="name"> Moritz Zoellner </div> <div class="title">Grad Student @ Purdue CS</div> <div class="address"> <p>zoellner<span style="color: #808080; margin: 0 0.25em;">[at]</span>purdue<span style="color: #808080; margin: 0 0.25em;">[dot]</span>edu</p> </div> <div class="contact-icons"> <a href="https://github.com/moritz-zoellner" title="GitHub" aria-label="GitHub" rel="external nofollow noopener" target="_blank"> <i class="fa-brands fa-github"></i> </a> <a href="https://www.linkedin.com/in/moritzzoellner/" title="LinkedIn" aria-label="LinkedIn" rel="external nofollow noopener" target="_blank"> <i class="fa-brands fa-linkedin"></i> </a> <a href="https://scholar.google.com/citations?hl=en&amp;user=HTE6ilMAAAAJ" title="Google Scholar" aria-label="Google Scholar" rel="external nofollow noopener" target="_blank"> <i class="ai ai-google-scholar"></i> </a> <a href="/assets/pdf/cv.pdf" title="CV" aria-label="CV" target="_blank" rel="noopener noreferrer"> <i class="ai ai-cv"></i> </a> </div> </div> </div> <div class="clearfix"> <p>I am a graduate student in the <a href="https://www.cs.purdue.edu/" rel="external nofollow noopener" target="_blank">Department of Computer Science</a> at <a href="https://www.purdue.edu/" rel="external nofollow noopener" target="_blank">Purdue University</a>, where my research is supervised by <a href="https://www.rohanpaleja.com/" rel="external nofollow noopener" target="_blank">Prof. Rohan Paleja</a> in the <a href="https://scale-robotics-lab.github.io/index.html" rel="external nofollow noopener" target="_blank">SCALE Robotics Lab</a>. I am grateful to the <a href="https://www.daad.de/en/" rel="external nofollow noopener" target="_blank">German Academic Exchange Service (DAAD)</a> for generously <a href="https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57503584" rel="external nofollow noopener" target="_blank">funding my master’s studies</a> in the United States.</p> <p><strong><em>This summer</em></strong>, I am at the <a href="https://www.ox.ac.uk/" rel="external nofollow noopener" target="_blank">University of Oxford</a> for a research visit with <a href="https://ihavoutis.github.io/" rel="external nofollow noopener" target="_blank">Prof. Ioannis Havoutis</a> in the <a href="https://ori.ox.ac.uk/groups/drs-control" rel="external nofollow noopener" target="_blank">Dynamic Robot Systems Group</a> at the <a href="https://ori.ox.ac.uk/" rel="external nofollow noopener" target="_blank">Oxford Robotics Institute</a>.</p> <p>In 2025, I completed my bachelor’s degree in computer science at <a href="https://www.htwk-leipzig.de/en/htwk-leipzig" rel="external nofollow noopener" target="_blank">Leipzig University of Applied Sciences</a>, where I was honored for graduating top of my class and received multiple awards for my bachelor’s thesis. As part of the degree program, I worked as a part-time software engineer at <a href="https://www.telekom.com/de" rel="external nofollow noopener" target="_blank">Deutsche Telekom</a> for three years and wrote my thesis at <a href="https://www.zeiss.com/microscopy/en/home.html" rel="external nofollow noopener" target="_blank">Carl Zeiss Microscopy</a> during a six-month R&amp;D internship.</p> <section id="research" class="one-page-section" data-one-page-section="research"> <h2 id="research-heading">research</h2> <p>I am broadly interested in robot learning and embodied AI, especially the long-term goal of building generalist robots that solve complex tasks by learning from humans, improving through experience, and understanding the physical world.</p> <h4 id="publications">publications</h4> <div class="publications"> <h2 class="bibliography">2026</h2> <ol class="bibliography"> <li> <div class="row first-author-publication"> <div class="col col-sm-2 abbr"> <abbr class="badge rounded w-100" style="background-color:#7f8794"> <div>Under Submission</div> </abbr> <figure> <picture> <img src="/assets/img/publication_preview/hint2_image.png" class="preview z-depth-1 rounded" width="100%" height="auto" alt="hint2_image.png" data-zoomable="" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> <div id="zoellner2026hint2" class="col-sm-8"> <div class="title">hint<sup>2</sup>: Hierarchical World Models for Inference-Time Temporal Logic Guidance</div> <div class="author"> <em>Moritz Zoellner</em>, Anastasios Manganaris, Ahmed Qureshi, and Rohan Paleja </div> <div class="periodical"> <em>Under Submission</em>, 2026 </div> <div class="periodical"> </div> <div class="links"> <a href="https://anonymous-hint2.github.io/" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">website</a> </div> </div> </div> </li> <li> <div class="row first-author-publication"> <div class="col col-sm-2 abbr"> <abbr class="badge rounded w-100" style="background-color:#4f7893"> <div>ICRA</div> </abbr> <figure> <picture> <img src="/assets/img/publication_preview/icra2026_workshop.png" class="preview z-depth-1 rounded" width="100%" height="auto" alt="icra2026_workshop.png" data-zoomable="" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> <div id="zoellner2026temporal" class="col-sm-8"> <div class="title">Temporal Logic Guidance for Action-Only Diffusion Policies with World Models</div> <div class="author"> <em>Moritz Zoellner</em>, Anastasios Manganaris, and Rohan Paleja </div> <div class="periodical"> <em>ICRA Workshop on Bridging the Gap between Robot Learning and Human-Robot Interaction</em>, 2026 </div> <div class="periodical"> </div> <div class="links"> <a href="https://placeholder.invalid/workshop-paper" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">paper</a> <a href="/assets/pdf/poster_icra2026.pptx%20(5).pdf" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">poster</a> <a href="https://sites.google.com/vt.edu/icra2026-learning-hri" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">workshop</a> </div> </div> </div> </li> </ol> <h2 class="bibliography">2025</h2> <ol class="bibliography"><li> <div class="row"> <div class="col col-sm-2 abbr"> <abbr class="badge rounded w-100" style="background-color:#758a63"> <div>DELFI</div> </abbr> <figure> <picture> <img src="/assets/img/publication_preview/pyrope.png" class="preview z-depth-1 rounded" width="100%" height="auto" alt="pyrope.png" data-zoomable="" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> </div> <div id="schobel2025pyrope" class="col-sm-8"> <div class="title">PyRope: A Code-Based Approach for E-Assessment in STEM Subjects<br><span class="publication-title-translation">Original title: PyRope–Ein codebasierter Ansatz für E-Assessment in MINT-Fächern</span> </div> <div class="author"> Konrad Schöbel, Jochen Merker, Paul Brassel, <em>Moritz Zoellner</em>, and Heike Hain </div> <div class="periodical"> <em>23rd Educational Technologies Conference of the German Informatics Society (DELFI)</em>, 2025 </div> <div class="periodical"> </div> <div class="links"> <a href="https://dl.gi.de/items/bbc9d76c-63ab-4e6e-b146-4a9fe5b4b302" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">paper</a> <a href="https://pyrope-edu.readthedocs.io/index.html" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">website</a> <a href="https://github.com/PyRope-E-Assessment/pyrope" class="btn btn-sm z-depth-0" role="button" rel="external nofollow noopener" target="_blank">code</a> </div> </div> </div> </li></ol> </div> </section> <section id="teaching" class="one-page-section" data-one-page-section="teaching"> <h2 id="teaching-heading">more</h2> <h3 class="teaching-separator">Awards</h3> <p>In 2025, I was awarded a <strong>scholarship for a master’s degree in the United States</strong> by the <a href="https://www.daad.de/en/" rel="external nofollow noopener" target="_blank">German Academic Exchange Service (DAAD)</a>. The scholarship covers tuition and living expenses at Purdue University over a two-year period.</p> <p>When I graduated from Leipzig University of Applied Sciences in 2025, I received an <strong>award for graduating top of my class</strong> and an <strong>award for the best bachelor’s thesis</strong>. In 2026, I also received an <strong><em><a href="https://www.actemium.de/news/foerderpreis-fuer-angewandte-digitalisierung-2026/" rel="external nofollow noopener" target="_blank">Applied Digitalization</a></em> thesis award</strong> from <a href="https://www.actemium.com/" rel="external nofollow noopener" target="_blank">Actemium Deutschland</a> for my bachelor’s thesis.</p> <p>Before my university studies, I attended a <a href="https://en.wikipedia.org/wiki/Carl-Zeiss-Gymnasium_Jena" rel="external nofollow noopener" target="_blank">selective STEM-focused high school</a> in Jena, Germany. Upon graduating with distinction in 2021, I received multiple awards, including an <strong>outstanding graduate award</strong> from the <a href="https://www.dpg-physik.de/" rel="external nofollow noopener" target="_blank">German Physical Society</a>.</p> <h3 class="teaching-separator">Service</h3> <p>I serve as a <strong>student co-chair</strong> of the <a href="https://ieee-robotlearning.github.io/" rel="external nofollow noopener" target="_blank">Technical Committee on Robot Learning</a> of the <a href="https://www.ieee-ras.org/" rel="external nofollow noopener" target="_blank">IEEE Robotics and Automation Society</a>.</p> <h3 class="teaching-separator">Teaching</h3> <p>In <em>Spring 2026</em>, I was a <strong>graduate teaching assistant</strong> for the course <a href="https://catalog.purdue.edu/preview_course_nopop.php?catoid=18&amp;coid=215412" rel="external nofollow noopener" target="_blank">AI Essentials: A Non-Technical Introduction (GRAD 503)</a> in the Department of Political Science at Purdue University.</p> <p>At Leipzig University of Applied Sciences, I was an <strong>undergraduate teaching assistant</strong> for <em>three semesters (2023-2024)</em>, where I developed exercises for <a href="https://modulux.htwk-leipzig.de/app-modulux/frontend/ausgabe/studiengaenge/?no_cache=1&amp;tx_ezqueries_ezqueriesplugin%5Bfilters%5D%5Bm_stg.m_stg_id%5D=294&amp;tx_ezqueries_ezqueriesplugin%5Bfilters%5D%5BfilterType%5D=strict&amp;tx_ezqueries_ezqueriesplugin%5Baction%5D=detail&amp;tx_ezqueries_ezqueriesplugin%5Bcontroller%5D=RecordManagement" rel="external nofollow noopener" target="_blank">new courses in mathematics and computer science</a> that are now part of the <a href="https://www.htwk-leipzig.de/studieren/studiengaenge/kooperative-studiengaenge/telekommunikationsinformatik-kooperativer-studiengang#c215690" rel="external nofollow noopener" target="_blank">degree program’s curriculum</a>. Additionally, as a <strong>research associate</strong> for <em>one semester (2025)</em>, I contributed to <a href="https://pyrope-edu.readthedocs.io/index.html" rel="external nofollow noopener" target="_blank">PyRope</a>, a Python package that helps university instructors create digital STEM exercises with integrated assessment.</p> </section> </div> </article> </div> <script defer src="/assets/js/one-page-nav.js?v=8bc8d64e06cd42f83923a950d3b07fa4"></script> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Moritz Zoellner. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="external nofollow noopener">al-folio</a> theme. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> </body> </html>
