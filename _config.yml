@@ -2,8 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
-seo_title: "Moritz Zoellner (Zöllner)"
+title: "Moritz Zoellner (Zöllner)" # the website title (if blank, full name will be used instead)
 first_name: Moritz
 middle_name:
 last_name: Zoellner
@@ -102,8 +101,8 @@ serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 person_schema:
-  name: Moritz Zoellner
-  alternate_name: Moritz Zöllner
+  name: Moritz Zöllner
+  alternate_name: Moritz Zoellner
   affiliation: Purdue University
   same_as:
     - https://github.com/moritz-zoellner

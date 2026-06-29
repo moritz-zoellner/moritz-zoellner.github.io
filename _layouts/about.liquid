@@ -2,11 +2,7 @@
 layout: default
 ---
 {% capture profile_display_name %}
-  {%- if site.title == 'blank' -%}
-    {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %}{% if site.last_name %} {{ site.last_name }}{% endif %}
-  {%- else -%}
-    {{ site.title }}
-  {%- endif -%}
+  {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %}{% if site.last_name %} {{ site.last_name }}{% endif %}
 {% endcapture %}
 {% if page.profile.align == 'center' %}
   <style>
