@@ -1,0 +1,102 @@
+{% if site.enable_google_verification or site.enable_bing_verification %}
+  <!-- Website verification -->
+  {% if site.enable_google_verification %}
+    <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {% endif %}
+  {% if site.enable_bing_verification %}
+    <meta name="msvalidate.01" content="{{ site.bing_site_verification }}">
+  {% endif %}
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+{% endif %}
+
+{% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
+{% assign author_name = author_name | strip %}
+{% if site.title == 'blank' %}
+  {% assign base_title = author_name %}
+{% else %}
+  {% assign base_title = site.title %}
+{% endif %}
+{% assign seo_title = site.seo_title | default: base_title %}
+{% assign meta_description = page.description | default: site.description | strip %}
+{% assign meta_keywords = page.keywords | default: site.keywords %}
+
+{% capture rendered_title %}
+  {% if page.url == '/blog/index.html' %}
+    {{ page.title }} | {{ seo_title }}
+  {% elsif page.title != 'blank' and page.url != '/' %}
+    {% if page.title == null or page.title == '' %}
+      {{ page.date | date: '%Y' }} | {{ seo_title }}
+    {% else %}
+      {{ page.title }} | {{ seo_title }}
+    {% endif %}
+  {% else %}
+    {{ seo_title }}
+  {% endif %}
+{% endcapture %}
+{% assign rendered_title = rendered_title | strip %}
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ rendered_title }}</title>
+<meta name="author" content="{{ author_name }}">
+<meta name="description" content="{{ meta_description }}">
+{% if meta_keywords %}
+  <meta name="keywords" content="{{ meta_keywords }}">
+{% endif %}
+
+{% assign is_blog_post = false %}
+{% if page.url != '/blog/index.html' and page.url contains '/blog/' %}
+  {% unless page.url contains '/tag/' or page.url contains '/category/' %}
+    {% assign is_blog_post = true %}
+  {% endunless %}
+{% endif %}
+
+{% if site.serve_og_meta %}
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="{{ seo_title }}">
+  <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ rendered_title }}">
+  <meta property="og:url" content="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  {% if page.og_image or site.og_image %}
+    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% else %}{{ site.og_image | absolute_url }}{% endif %}">
+  {% endif %}
+  <meta property="og:locale" content="{{ site.lang }}">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ rendered_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  {% if page.og_image or site.og_image %}
+    <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% else %}{{ site.og_image | absolute_url }}{% endif %}">
+  {% endif %}
+  {% if site.x_username %}
+    <meta name="twitter:site" content="@{{ site.x_username }}">
+    <meta name="twitter:creator" content="@{{ site.x_username }}">
+  {% endif %}
+{% endif %}
+
+{% if site.person_schema %}
+  {% assign person = site.person_schema %}
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": {{ person.name | default: author_name | jsonify }},
+      "alternateName": {{ person.alternate_name | jsonify }},
+      "url": {{ site.url | jsonify }},
+      "affiliation": {
+        "@type": "Organization",
+        "name": {{ person.affiliation | jsonify }}
+      }{% if person.same_as and person.same_as.size > 0 %},
+      "sameAs": [
+        {% for link in person.same_as %}
+          {{ link | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]{% endif %}
+    }
+  </script>
+{% endif %}

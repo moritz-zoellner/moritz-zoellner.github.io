@@ -3,21 +3,23 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
+seo_title: "Moritz Zoellner (Zöllner)"
 first_name: Moritz
 middle_name:
 last_name: Zoellner
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal academic website of Moritz Zoellner.
+  Personal website of Moritz Zoellner (Zöllner), graduate student in Computer Science at Purdue University working on robot learning and embodied AI.
+footer_name: "Moritz Zöllner"
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a> theme.
 keywords: robot-learning, machine-learning, embodied-ai, physical-ai # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.png # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://moritz-zoellner.github.io # the base hostname & protocol for your site
-baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
+url: "https://moritz-zoellner.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -96,9 +98,17 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
+person_schema:
+  name: Moritz Zoellner
+  alternate_name: Moritz Zöllner
+  affiliation: Purdue University
+  same_as:
+    - https://github.com/moritz-zoellner
+    - https://www.linkedin.com/in/moritzzoellner/
+    - https://scholar.google.com/citations?hl=en&user=HTE6ilMAAAAJ
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
