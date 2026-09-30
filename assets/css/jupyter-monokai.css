@@ -373,6 +373,7 @@ body,
 div,
 dl,
 dt,
+dd,
 ul,
 ol,
 li,
@@ -383,6 +384,7 @@ h4,
 pre,
 code,
 form,
+legend,
 input,
 button,
 textarea,
@@ -480,6 +482,14 @@ pre {
   -webkit-box-shadow: none;
   box-shadow: none;
   z-index: 10;
+}
+
+
+video {
+  display: inline;
+  vertical-align: middle;
+  align-content: center;
+  margin-left: 20%;
 }
 
 

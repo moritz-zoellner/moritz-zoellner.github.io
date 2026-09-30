@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta
+      name="description"
+      content="Composing Learned Robot Behaviors with Temporal Logic at Runtime. Research by Moritz Zoellner, Anastasios Manganaris, Ahmed H. Qureshi, and Rohan Paleja at Purdue University."
+    />
+    <title>Composing Learned Robot Behaviors with Temporal Logic at Runtime — Purdue University</title>
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/project.css" />
+    <link rel="canonical" href="https://moritz-zoellner.com/learned-ltl/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moritz-zoellner.com/learned-ltl/" />
+    <meta property="og:title" content="Composing Learned Robot Behaviors with Temporal Logic at Runtime" />
+    <meta
+      property="og:description"
+      content="Learning robot behaviors and their semantic outcomes from demonstrations, then composing them with temporal logic at deployment."
+    />
+    <meta property="og:image" content="https://moritz-zoellner.com/learned-ltl/figures/calvin-base-policy.png" />
+    <meta name="citation_title" content="Composing Learned Robot Behaviors with Temporal Logic at Runtime" />
+    <meta name="citation_author" content="Moritz Zoellner" />
+    <meta name="citation_author" content="Anastasios Manganaris" />
+    <meta name="citation_author" content="Ahmed H. Qureshi" />
+    <meta name="citation_author" content="Rohan Paleja" />
+    <meta name="citation_pdf_url" content="https://moritz-zoellner.com/learned-ltl/paper.pdf" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="paper-header">
+        <h1>Composing Learned Robot Behaviors with Temporal Logic at Runtime</h1>
+        <ul class="authors" aria-label="Authors">
+          <li><a href="https://moritz-zoellner.com/">Moritz Zoellner</a><sup>1</sup></li>
+          <li><a href="https://www.cs.purdue.edu/people/graduate-students/amangana.html">Anastasios Manganaris</a><sup>1</sup></li>
+          <li><a href="https://qureshiahmed.github.io/">Ahmed H. Qureshi</a><sup>1</sup></li>
+          <li><a href="https://www.rohanpaleja.com/">Rohan Paleja</a><sup>1</sup></li>
+        </ul>
+        <p class="affiliation" id="affiliation"><sup>1</sup>Department of Computer Science, Purdue University</p>
+        <a class="university-mark" href="https://www.purdue.edu/" aria-label="Purdue University">
+          <img src="assets/purdue-logo.svg" alt="Purdue University" width="230" height="46" />
+        </a>
+        <div class="project-links">
+          <a class="paper-link" href="paper.pdf">Paper <span>(PDF)</span></a
+          ><span class="code-note">Code coming soon</span>
+        </div>
+      </header>
+      <section class="section" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <div class="abstract-card">
+          <p>
+            Executing Linear Temporal Logic (LTL) instructions with learned robot policies faces two practical challenges: demonstrations may cover
+            individual behaviors without containing the temporal compositions requested at deployment, and semantic success predicates often provide
+            little useful motor guidance through quantitative robustness. We address these challenges by separating behavior learning from temporal
+            composition. From the same offline demonstrations, we train an unconditioned multimodal diffusion policy and a semantic predictor that
+            estimates which semantic outcomes are likely to follow a proposed action sequence. These predictions provide a learned guidance signal
+            without requiring hand-designed robustness measures for semantic task objectives. At deployment, an LTL automaton tracks instruction
+            progress and scores the policy&#x27;s proposed actions according to their predicted semantic outcomes. Neither learned component receives
+            the specification during training, allowing demonstrated behaviors to be reused in longer, previously unseen temporal compositions without
+            retraining. For additional runtime safety constraints with informative continuous margins, an optional robustness-based controller locally
+            refines the selected actions. Experiments in a navigation environment, CALVIN manipulation, and on a real robot demonstrate reliable
+            execution of complex temporal instructions and additional safety constraints, with substantial improvements over temporal-logic baselines.
+          </p>
+        </div>
+      </section>
+      <section class="section experiments" aria-labelledby="experiments-title">
+        <h2 id="experiments-title">Experimental Results</h2>
+        <div class="results-board">
+          <article class="experiment-row">
+            <div class="experiment-title" aria-label="Experiment 1"><span>1</span></div>
+            <div class="experiment-slots">
+              <div class="base-panel image-slot">
+                <h3 class="slot-label base-title card-title">Navigation</h3>
+                <img src="figures/toy-base-policy.png" alt="Navigation base diffusion policy rollouts" />
+                <p class="instruction base-caption">The demonstration data includes movements to any of the four regions.</p>
+              </div>
+              <div class="method-panel">
+                <div class="method-heading-row">
+                  <h3 class="method-video-title card-title">Liveness Constraints</h3>
+                  <h3 class="method-video-title card-title">Complex Instructions</h3>
+                </div>
+                <div class="method-grid">
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Liveness Constraints</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/toy-liveness.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction">
+                        <span class="ltl-label">LTL:</span>
+                        <code
+                          ><span class="ltl-term">F(b</span> <span class="ltl-term">∧ X F(y</span> <span class="ltl-term">∧ X F(g</span>
+                          <span class="ltl-term">∧ X F(r</span> <span class="ltl-term">∧ X F b))))</span></code
+                        >
+                      </p>
+                      <p class="instruction">&quot;Touch the blue region, then the yellow, green, and red regions, then blue again.&quot;</p>
+                    </div>
+                  </div>
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Complex Instructions</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/toy-general-ltl.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction ltl-complex">
+                        <span class="ltl-row"
+                          ><span class="ltl-label">LTL:</span>
+                          <code
+                            ><span class="ltl-term">G avoid_region</span> <span class="ltl-term">∧ F((F r</span>
+                            <span class="ltl-term">∧ F b)</span></code
+                          ></span
+                        ><span class="ltl-row"
+                          ><code
+                            ><span class="ltl-term">∧ F[F(y</span> <span class="ltl-term">∧ F(b</span> <span class="ltl-term">∧ F(g</span>
+                            <span class="ltl-term">∧ F y)))</span></code
+                          ></span
+                        ><span class="ltl-row"
+                          ><code
+                            ><span class="ltl-term">∨ F(g</span> <span class="ltl-term">∧ F(b</span> <span class="ltl-term">∧ F(y</span>
+                            <span class="ltl-term">∧ F g)))])</span></code
+                          ></span
+                        >
+                      </p>
+                      <p class="instruction">&quot;Visit r and b, follow y→b→g→y or g→b→y→g, and always avoid the marked regions.&quot;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="experiment-row">
+            <div class="experiment-title" aria-label="Experiment 2"><span>2</span></div>
+            <div class="experiment-slots">
+              <div class="base-panel image-slot">
+                <h3 class="slot-label base-title card-title">CALVIN</h3>
+                <img src="figures/calvin-base-policy.png" alt="Base diffusion policy in CALVIN" />
+                <p class="instruction base-caption">The demonstrations cover arbitrary interactions with the tabletop scene.</p>
+              </div>
+              <div class="method-panel">
+                <div class="method-heading-row">
+                  <h3 class="method-video-title card-title">Cyclic Repetition</h3>
+                  <h3 class="method-video-title card-title">Safety Constraints</h3>
+                </div>
+                <div class="method-grid">
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Cyclic Repetition</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/calvin-cyclic.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction">
+                        <span class="ltl-label">LTL:</span>
+                        <code
+                          ><span class="ltl-term">G F(drawer<sup>+</sup></span> <span class="ltl-term">∧ X F(switch<sup>+</sup></span>
+                          <span class="ltl-term">∧ X F(drawer<sup>−</sup></span> <span class="ltl-term">∧ X F switch<sup>−</sup>)))</span></code
+                        >
+                      </p>
+                      <p class="instruction">&quot;Repeatedly flip the switch and open or close the drawer.&quot;</p>
+                    </div>
+                  </div>
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Safety Constraints</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/calvin-safety.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction">
+                        <span class="ltl-label">LTL:</span>
+                        <code
+                          ><span class="ltl-term">F switch<sup>−</sup></span> <span class="ltl-term">∧ G tilt<sub>20°</sub></span></code
+                        >
+                      </p>
+                      <p class="instruction">&quot;Turn off the switch while keeping the gripper tilted near 20 degrees.&quot;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="experiment-row">
+            <div class="experiment-title" aria-label="Experiment 3"><span>3</span></div>
+            <div class="experiment-slots">
+              <div class="base-panel image-slot">
+                <h3 class="slot-label base-title card-title">Real World</h3>
+                <img src="figures/real-world-base-policy.png" alt="Real-world base policy" />
+                <p class="instruction base-caption">
+                  The demonstrations cover how to pick up the Cheez-Its, pour them into either bowl, and put them down again.
+                </p>
+              </div>
+              <div class="method-panel">
+                <div class="method-heading-row">
+                  <h3 class="method-video-title card-title">Behavior Selection</h3>
+                  <h3 class="method-video-title card-title">Cyclic Repetition</h3>
+                </div>
+                <div class="method-grid">
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Behavior Selection</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/real-behavior-selection.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction">
+                        <span class="ltl-label">LTL:</span>
+                        <code
+                          ><span class="ltl-term">F(pour<sub>R</sub></span> <span class="ltl-term">∧ X F(pour<sub>L</sub></span>
+                          <span class="ltl-term">∧ X F pour<sub>R</sub>))</span></code
+                        >
+                      </p>
+                      <p class="instruction">&quot;Pour the Cheez-Its into the right bowl, then the left bowl, then the right bowl again.&quot;</p>
+                    </div>
+                  </div>
+                  <div class="method-card">
+                    <h3 class="slot-label mobile-method-title card-title">Cyclic Repetition</h3>
+                    <video class="result-video" controls muted loop playsinline preload="metadata">
+                      <source src="videos/real-cyclic.mp4" type="video/mp4" />
+                      This browser cannot play the embedded video.
+                    </video>
+                    <div class="instruction-block">
+                      <p class="ltl-instruction">
+                        <span class="ltl-label">LTL:</span>
+                        <code
+                          ><span class="ltl-term">G F(grab</span> <span class="ltl-term">∧ X F(pour<sub>R</sub></span>
+                          <span class="ltl-term">∧ X F(pour<sub>L</sub></span> <span class="ltl-term">∧ X F put_down)))</span></code
+                        >
+                      </p>
+                      <p class="instruction">
+                        &quot;Repeatedly pick up the box, pour into the right bowl, then the left bowl, and put it down.&quot;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <dl class="ltl-key" aria-label="LTL and environment legend">
+        <dt>LTL notation:</dt>
+        <dd>
+          <code>F</code> = eventually; <code>G</code> = always; <code>X</code> = next.
+          <a href="https://en.wikipedia.org/wiki/Linear_temporal_logic" target="_blank" rel="noopener noreferrer">Learn more about LTL</a>
+        </dd>
+        <dt>Navigation:</dt>
+        <dd><code>b, y, g, r</code> = blue, yellow, green, red; <code>avoid_region</code> = stay outside the marked regions.</dd>
+        <dt>CALVIN:</dt>
+        <dd>
+          <code>switch<sup>+</sup>/switch<sup>−</sup></code> = on/off; <code>drawer<sup>+</sup>/drawer<sup>−</sup></code> = open/closed;
+          <code>tilt<sub>20°</sub></code> = gripper tilt near 20°.
+        </dd>
+        <dt>Real World:</dt>
+        <dd>
+          <code>pour<sub>R</sub>/pour<sub>L</sub></code> = pour right/left; <code>grab</code> = pick up the box; <code>put_down</code> = put it down.
+        </dd>
+      </dl>
+    </main>
+  </body>
+</html>
